@@ -8,7 +8,7 @@
     'category': 'Product',
     'depends': ['product'],
     'data': [
-        'views/views.xml',
+        'views/product_template_views.xml',
     ],
     'installable': True,
     'auto_install': False,
