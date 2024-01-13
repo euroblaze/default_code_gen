@@ -3,6 +3,8 @@
 - This Odoo module automatically generates a new default code for each product created in Odoo. The new default code is based on the largest existing default code, incrementing it by 1. 
 - If the largest existing code contains non-numeric characters, they are stripped out, and only the numeric part is considered for incrementing. (this could be flawed code sequence).
 
+Aside of this simple logic of incrementing numeric product codes, more complicated product codes can also be generated based on the business' needs.
+
 ## Features
 
 - Auto-generates a new default code for new products.
