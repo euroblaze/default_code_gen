@@ -4,6 +4,8 @@ import re
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    default_code = fields.Char(compute='compute_default_code', store=True, readonly=False)
+
     def get_numeric_part(self, code):
         """Extracts the numeric part from a string."""
         return ''.join(filter(str.isdigit, code))
@@ -24,5 +26,5 @@ class ProductTemplate(models.Model):
             new_code_number = 1
         return str(new_code_number)
 
-    default_code = fields.Char(compute='compute_default_code', store=True, readonly=False)
+
 

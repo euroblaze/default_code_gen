@@ -6,9 +6,10 @@
     'author': 'Ashant Chalasani',
     'website': 'https://poweron.software',
     'category': 'Product',
-    'depends': ['product'],
+    'depends': ['product','base_automation'],
     'data': [
-        'views/product_template_views.xml',
+        'data/auto_default_code_increase.xml',
+        'views/product_template_views.xml'
     ],
     'installable': True,
     'auto_install': False,
