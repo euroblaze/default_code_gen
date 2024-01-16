@@ -1,3 +1,9 @@
+## Warnings!!
+
+1. Import all products first (with `default_code`), then activate this module.
+2. This computation of default code will be triggered when new products are created via Excel files. So reduce Batch size to <100. Expect LONG upload times, and even timeouts!
+
+
 # Auto Generate Default Code
 
 - This Odoo module automatically generates a new default code for each product created in Odoo. The new default code is based on the largest existing default code, incrementing it by 1. 
