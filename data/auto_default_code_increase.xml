@@ -6,20 +6,17 @@
         <field name="state">code</field>
         <field name="trigger">on_create</field>
         <field name="code">
-def get_number_code(default_code):
-    try:
-        number_part = int(''.join(filter(str.isdigit, default_code)))
-    except:
-        number_part = 1
-
-    char_part = ''.join(filter(lambda x: not x.isdigit(), default_code))
-    vals = [char_part,number_part]
-    return vals
-
 def get_largest_code():
-    rec = env['product.product'].search([('default_code','!=',False)], order='default_code desc', limit=1)
-    if rec:
-      return get_number_code(rec.default_code)
+    rec = env['product.product'].search([('default_code','!=',False)], order='default_code desc')
+    list_records_desc = rec.mapped('default_code')
+    list_code_number = []
+    for code in list_records_desc:
+        try:
+            list_code_number.append(int(code))
+        except:
+            list_code_number.append(int(''.join(filter(str.isdigit, code))))
+    highest_number = max(list_code_number)
+    return highest_number
 
 if record:
     if record.default_code:
@@ -27,7 +24,7 @@ if record:
     else:
         current_largest_code = get_largest_code()
         record.write({
-            'default_code': current_largest_code[0] + str(current_largest_code[1] + 1)
+            'default_code': str(current_largest_code + 1)
         })
         </field>
     </record>
